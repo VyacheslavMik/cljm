@@ -4,9 +4,9 @@
             [cljm.env :as env]
             [cljm.pg-pool :as pool]))
 
-(defn database-url []
+(defn database-url [& [db]]
   (str "jdbc:postgresql://" env/pg-host ":" env/pg-port
-       "/" env/pg-database
+       "/" (or db env/pg-database)
        "?user=" env/pg-user
        "&password=" env/pg-password "&stringtype=unspecified"))
 

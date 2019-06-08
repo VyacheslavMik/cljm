@@ -8,8 +8,7 @@
             [cljm.error-code :as error-code]
             [clojure.java.io :as io]))
 
-(routes/defroute :get "/_matrix/client/versions" (fn [_]
-                                                   {:versions ["r0.4.0"]}))
+(routes/defroute :get "/_matrix/client/versions" (fn [_] {:versions ["r0.4.0"]}))
 
 (defn make-response [result]
   (-> result
@@ -36,7 +35,7 @@
 (defmethod parse-params :get [req]
   (when-let [qs (:query-string req)]
     (protect
-     (walk/keywordize-keys (codec/form-decode qs))
+     [true (walk/keywordize-keys (codec/form-decode qs))]
      (handler [false error-code/not-json]))))
 
 (defn parse-body [{:keys [body]}]
