@@ -7,7 +7,8 @@
         org.postgresql/postgresql       {:mvn/version "42.2.5"}
         org.clojure/java.jdbc           {:mvn/version "0.7.9"}
         honeysql                        {:mvn/version "0.9.4"}
-        nilenso/honeysql-postgres       {:mvn/version "0.2.5"}}
+        nilenso/honeysql-postgres       {:mvn/version "0.2.5"}
+        ring/ring-codec                 {:mvn/version "1.1.2"}}
 
  :mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
              "clojars" {:url "https://repo.clojars.org/"}}
